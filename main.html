@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+            <style type="text/css">
+                th, td {
+                    background: deepskyblue; width: 30px;
+                    padding: 5px; height: 30px;
+                }
+                .border {
+                    outline: solid 1px deepskyblue;
+                    outline-offset: -4px;
+                    position: relative;
+                    height: 100%;
+                }
+				.button {
+					float: left;
+					border: 1px;
+					background: orange; 
+					padding: 10px;
+					margin-right: 10px;
+					width: 40px;
+				}
+            </style>
+			<script language="JavaScript">
+				function addrow(){
+                    d = document;
+			        var table = d.getElementById('myTable').getElementsByTagName('tbody')[0];
+                    var row = d.createElement("TR");
+                    table.appendChild(row);
+
+                    var td1 = d.createElement("TD");
+                    var td2 = d.createElement("TD");
+                    var td3 = d.createElement("TD");
+                    var td4 = d.createElement("TD");
+
+                    row.appendChild(td1);
+                    row.appendChild(td2);
+                    row.appendChild(td3);
+                    row.appendChild(td4);
+				}
+            </script>
+        </head>
+    <body>
+		<div>
+			<input class="button" type="button" onclick="addrow();" value="+">
+           	<table id="myTable" class="border" cellspacing="1">
+                <tr><th></th><th></th><th></th><th></th></tr>
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <tr><td></td><td></td><td></td><td></td></tr>
+             </table>
+            <tbody>
+            </tbody>
+		</div>
+    </body>
+</html>
