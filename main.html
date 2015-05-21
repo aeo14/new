@@ -1,59 +1,81 @@
 
 <!DOCTYPE html>
 <html>
-    <head lang="en">
-        <meta charset="UTF-8">
-        <title></title>
-            <style type="text/css">
-                th, td {
-                    background: deepskyblue; width: 30px;
-                    padding: 5px; height: 30px;
-                }
-                .border {
-                    outline: solid 1px deepskyblue;
-                    outline-offset: -4px;
-                    position: relative;
-                    height: 100%;
-                }
-				.button {
-					float: left;
-					border: 1px;
-					background: orange; 
-					padding: 10px;
-					margin-right: 10px;
-					width: 40px;
-				}
-            </style>
-			<script language="JavaScript">
-				function addrow(){
-                    d = document;
-			        var table = d.getElementById('myTable').getElementsByTagName('tbody')[0];
-                    var row = d.createElement("TR");
-                    table.appendChild(row);
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        td {
+            background: deepskyblue; width: 30px;
+            padding: 5px; height: 30px;
+        }
+        .border {
+            outline: solid 1px deepskyblue;
+            outline-offset: -4px;
+            position: absolute; left: 50px; top: 50px;
+        }
+        .button {
+            border: 1px; background: orange;
+            height: 40px; width: 40px;
+        /* -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 5px;*/
+        }
+        .button:hover{background-color: goldenrod;}
+        .button1{position: absolute; left: 220px; top: 50px}
+        .button2{position: absolute; left: 50px; top: 220px}
 
-                    var td1 = d.createElement("TD");
-                    var td2 = d.createElement("TD");
-                    var td3 = d.createElement("TD");
-                    var td4 = d.createElement("TD");
+    </style>
+    <script language="JavaScript">
+        function addrow(){
+            d = document;
+            var table = d.getElementById('myTable');
+            var row = d.createElement("TR");
+            table.appendChild(row);
 
-                    row.appendChild(td1);
-                    row.appendChild(td2);
-                    row.appendChild(td3);
-                    row.appendChild(td4);
-				}
-            </script>
-        </head>
-    <body>
-		<div>
-			<input class="button" type="button" onclick="addrow();" value="+">
-           	<table id="myTable" class="border" cellspacing="1">
-                <tr><th></th><th></th><th></th><th></th></tr>
-                <tr><td></td><td></td><td></td><td></td></tr>
-                <tr><td></td><td></td><td></td><td></td></tr>
-                <tr><td></td><td></td><td></td><td></td></tr>
-             </table>
+            var td1 = d.createElement("TD");
+            var td2 = d.createElement("TD");
+            var td3 = d.createElement("TD");
+            var td4 = d.createElement("TD");
+
+            row.appendChild(td1);
+            row.appendChild(td2);
+            row.appendChild(td3);
+            row.appendChild(td4);
+        }
+        function addcol(){
+            var table = document.getElementById('myTable'),
+                    trs = table.getElementsByTagName('tr'),
+                    count = trs.length;
+            var i = 0;
+            for(i; i < count; i++) {
+                var c = i <= 1 ? 2 : 3, x = trs[i].insertCell(c);
+                alert(c);
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="border">
+        <table id="myTable" cellspacing="1">
             <tbody>
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <tr><td></td><td></td><td></td><td></td></tr>
             </tbody>
-		</div>
-    </body>
+        </table>
+    </div>
+    <div class="button1">
+        <input class="button" type="button" onclick="addrow();" value="+">
+    </div>
+    <div class="button2">
+        <input class="button" type="button" onclick="addcol();" value="+">
+    </div>
+
+</body>
 </html>
+
+
+http://www.realcoding.net/articles/javascript-dobavlenie-strok-v-tablitsu.html
